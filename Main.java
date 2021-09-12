@@ -49,6 +49,8 @@ public class Main {
             else{
                 System.out.println("Looks like that is an incorrect option, please enter a correct one!!");
                 loginCreateAccount = scan.nextLine().toLowerCase();
+                //----------------------Work in progress----------------------------------
+                
                 
             }
         }
