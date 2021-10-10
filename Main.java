@@ -57,7 +57,7 @@ public class Main {
 
 
         // home screen
-        HomeScreen();//prints homescreen and reads input
+        HomeScreen();//prints homescreen and reads input and also contains PasswordVerifier Method --> executed during method call
 
         // Mail and Password Verifier
 
@@ -76,9 +76,16 @@ public class Main {
     }
     public static void PasswordVerifier(String cMailID, String cPassowrd){
            if(cMailID.equals("@gmail.com")){
-
+               if(cPassowrd.length()!= 8){
+               System.out.println("Please enter a password greater than 8 characters");
+               HomeScreen();
+               }else{
+                   
+               }
            }
-           else
+           else{
            System.out.println("The entered mail id is not correct, please use an appropriate domain");
+           HomeScreen();
+           }
     }
 }
