@@ -65,6 +65,8 @@ public class Main {
 
     public static void HomeScreen() { // Prints the homescreen of the bank
         Scanner scan1 = new Scanner(System.in);
+        System.out.println("\n");
+        System.out.println("\n");
         System.out.println("\t Hey There! \t ");
         System.out.print("Welcome to KBANK:- \nPlease Enter your mail id: ");
         String cMailID = scan1.nextLine(); // Variable that reads the mail id - home screen
