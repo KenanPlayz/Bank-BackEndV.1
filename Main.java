@@ -17,27 +17,28 @@ public class Main {
 
     public static void Verifier(String cMailID, String cPassowrd) {
         EmailValidation(cMailID);
-        if(EmailValidation(cMailID)==true){
+        if (EmailValidation(cMailID) == true) {
             System.out.println("Your Entered email is correct!");
-            if((int)(cPassowrd.length())< 8){
-            System.out.println("Please enter a password greater than 8 characters");
-            Login_Create_Screen();
-            }else{
-                
+            if ((int) (cPassowrd.length()) < 8) {
+                System.out.println("Please enter a password greater than 8 characters");
+                Login_Create_Screen();
+            } else {
+
             }
-        }
-        else{
-        System.out.println("The entered mail id is not correct, please use an appropriate domain");
-        Login_Create_Screen();
+        } else {
+            System.out.println("The entered mail id is not correct, please use an appropriate domain");
+            Login_Create_Screen();
         }
 
     }
-    public static boolean EmailValidation(String cMailID){
+
+    public static boolean EmailValidation(String cMailID) {
         String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
-        Pattern emailPattern = Pattern.compile(emailRegex,Pattern.CASE_INSENSITIVE);
+        Pattern emailPattern = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = emailPattern.matcher(cMailID);
         return matcher.find();
     }
+
     public static void main(String args[]) {
         Scanner scan = new Scanner(System.in);
 
@@ -84,7 +85,8 @@ public class Main {
                 break;
             else if (loginCreateAccount.equals("login with a existing account"))
                 break;
-            else if(loginCreateAccount.equals("Exit") || loginCreateAccount.equals("Exit"));
+            else if (loginCreateAccount.equals("Exit") || loginCreateAccount.equals("Exit"))
+                ;
             else {
                 System.out.println("Looks like that is an incorrect option, please enter a correct one!!");
                 loginCreateAccount = scan.nextLine().toLowerCase();
@@ -95,11 +97,10 @@ public class Main {
 
         // home screen
         Login_Create_Screen();// prints homescreen and reads input and also contains PasswordVerifier Method
-                     // --> executed during method call
+        // --> executed during method call
 
         // Mail and Password Verifier
 
     }
 
-  
 }
