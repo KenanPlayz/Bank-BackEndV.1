@@ -72,5 +72,13 @@ public class Main {
         String cMailID = scan1.nextLine(); // Variable that reads the mail id - home screen
         System.out.print("Please enter your password: ");
         String cPassword = scan1.nextLine(); // variable that reads the password - home screen
+        PasswordVerifier(cMailID,cPassword);
+    }
+    public static void PasswordVerifier(String cMailID, String cPassowrd){
+           if(cMailID.equals("@gmail.com")){
+
+           }
+           else
+           System.out.println("The entered mail id is not correct, please use an appropriate domain");
     }
 }
