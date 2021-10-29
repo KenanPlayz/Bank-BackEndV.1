@@ -21,11 +21,13 @@ public class Mail {
         properties.put("mail.smtp.starttls.enable", "true");
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
+        System.out.println("Sending Mail 2");
 
         String myAccountEmail = "coyotesmailbot@gmail.com";
-        String password = "Zaqws@2015";
+        String password = "xxxxx";
         int otp = (int) (Math.random()*500)+900;
-
+        System.out.println("Sending Mail 3");
+        System.out.println("Sending Mail 4");
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -33,20 +35,26 @@ public class Mail {
             }
 
         });
+        System.out.println("Sending Mail 5");
         Message message = prepareMessage(session,myAccountEmail, recepient, otp);
     Transport.send(message);
+    System.out.println("Sending Mail 6");
     System.out.println("Message Sent");
     }
 
     private static Message prepareMessage(Session session, String myAccountEmail, String recepient, int otp){
+        System.out.println("Sending Mail 8");
        try{
+        System.out.println("Sending Mail 9");
            Message message = new MimeMessage(session);
            message.setFrom(new InternetAddress(myAccountEmail));
            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
            message.setSubject("OTP-KBANK||VERIFICATION");
            message.setText("Hey There, here is your OTP"+otp );
+           System.out.println("Sending Mail 10");
            return message;
        } catch(Exception ex){
+        System.out.println("Sending Mail 11");
            Logger.getLogger(Mail.class.getName()).log(Level.SEVERE,null, ex);
        }
        return null;
