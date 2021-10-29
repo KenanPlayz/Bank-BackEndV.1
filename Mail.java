@@ -14,7 +14,7 @@ import javax.mail.internet.MimeMessage;
 
 
 public class Mail {
-    public static void main(String recepient) throws Exception{
+    public static void sendMail(String recepient) throws Exception{
         System.out.println("Sending Mail ");
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
