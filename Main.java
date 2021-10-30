@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void Login_Create_Screen() { // Prints the homescreen of the bank
+    public static void Login_Create_Screen() throws Exception { // Prints the homescreen of the bank
         Scanner scan1 = new Scanner(System.in);
         System.out.println("\n");
         System.out.println("\n");
@@ -15,7 +15,7 @@ public class Main {
         Verifier(cMailID, cPassword);
     }
 
-    public static void Verifier(String cMailID, String cPassowrd) {
+    public static void Verifier(String cMailID, String cPassowrd) throws Exception {
         EmailValidation(cMailID);
         if (EmailValidation(cMailID) == true) {
             System.out.println("Your Entered email is correct!");
@@ -23,6 +23,7 @@ public class Main {
                 System.out.println("Please enter a password greater than 8 characters");
                 Login_Create_Screen();
             } else {
+                otpVerification(cMailID,cPassowrd);
 
             }
         } else {
@@ -38,8 +39,24 @@ public class Main {
         Matcher matcher = emailPattern.matcher(cMailID);
         return matcher.find();
     }
+    public static void otpVerification(String cMailID, String cPassowrd) throws Exception{
+        Mail.sendMail(cMailID);
+        Scanner scanner = new Scanner(System.in);
+        Mail mailObject = new Mail();
+        System.out.println("An OTP has been sent to your email id \n Please Enter OTP:");
+        System.out.println("the otp was :"+ mailObject.otp);
+        int otpEntered = scanner.nextInt();
+        if(otpEntered == mailObject.otp){
+        
+            HomeScreen();
+        }
+       
+    }
+    public static void HomeScreen(){
+            System.out.println("Welcome to homescreen");
+    }
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
         Scanner scan = new Scanner(System.in);
 
         // login/create
