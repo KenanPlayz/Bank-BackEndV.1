@@ -14,6 +14,7 @@ import javax.mail.internet.MimeMessage;
 
 
 public class Mail {
+    public int otp= (int) (Math.random()*500)+900;
     public static void sendMail(String recepient) throws Exception{
         System.out.println("Sending Mail ");
         Properties properties = new Properties();
@@ -24,8 +25,10 @@ public class Mail {
         System.out.println("Sending Mail 2");
 
         String myAccountEmail = "coyotesmailbot@gmail.com";
-        String password = "xxxxx";
-        int otp = (int) (Math.random()*500)+900;
+        String password = "xxxxxxxx";
+        Mail mailObject1 = new Mail();
+       
+        //int otp = (int) (Math.random()*500)+900;
         System.out.println("Sending Mail 3");
         System.out.println("Sending Mail 4");
         Session session = Session.getInstance(properties, new Authenticator() {
@@ -36,14 +39,14 @@ public class Mail {
 
         });
         System.out.println("Sending Mail 5");
-        Message message = prepareMessage(session,myAccountEmail, recepient, otp);
+        Message message = prepareMessage(session,myAccountEmail, recepient, mailObject1.otp);
     Transport.send(message);
     System.out.println("Sending Mail 6");
     System.out.println("Message Sent");
     }
 
     private static Message prepareMessage(Session session, String myAccountEmail, String recepient, int otp){
-        System.out.println("Sending Mail 8");
+        System.out.println(otp);
        try{
         System.out.println("Sending Mail 9");
            Message message = new MimeMessage(session);
@@ -59,6 +62,8 @@ public class Mail {
        }
        return null;
     }
+
+   
 
    
 }
